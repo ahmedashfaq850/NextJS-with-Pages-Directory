@@ -12,7 +12,7 @@ const Todo = ({ singleTodo }: any) => {
     }
     return (
         <div>
-            
+
             {singleTodo.todo}
         </div>
     )
@@ -35,16 +35,8 @@ export async function getStaticPaths() {
     return { paths, fallback: false };
 }
 
-
-// async function checkApi(){
-//     const {data} = await axios.get((`https://dummyjson.com/todos`));
-//     return data.todos
-
-// }
-// checkApi().then((res)=>console.log('bilal',res))
-
 export async function getStaticProps({ params }: any) {
-    const {data} = await axios.get((`https://dummyjson.com/todos/${params.id}`));
+    const { data } = await axios.get((`https://dummyjson.com/todos/${params.id}`));
     const singleTodo = data
 
     return { props: { singleTodo } };
